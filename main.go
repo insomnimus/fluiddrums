@@ -1,6 +1,7 @@
 package main
 
 import (
+"fmt"
 	"flag"
 	"github.com/eiannone/keyboard"
 	"net"
@@ -67,13 +68,13 @@ const (
 )
 
 func main() {
-	println("press 1 and 2 to switch presets")
+	fmt.Println("press 1 and 2 to switch presets")
 	var port string
 	flag.StringVar(&port, "p", "localhost:9800", "fluidsynth port")
 	flag.Parse()
 	conn, err := net.Dial("tcp", port)
 	if err != nil {
-		println("run fluidsynth in server mode first with -s flag")
+		fmt.Println("run fluidsynth in server mode first with -s flag")
 		panic(err)
 	}
 	c = conn
@@ -100,7 +101,7 @@ func main() {
 			case 'a':
 				crashB.Play()
 			case 'e':
-				rideB.Play()
+				hatA.Play()
 			case 'r':
 				hatC.Play()
 			case 'w':
