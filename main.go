@@ -68,8 +68,8 @@ func main() {
 			e = <-keys
 			switch e.Rune {
 			case 'h':
-			drumA.Play()
-			drumH.Play()
+				drumA.Play()
+				drumH.Play()
 			case 'j', 'k':
 				drumA.Play()
 			case 'f':
