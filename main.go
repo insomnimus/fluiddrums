@@ -44,7 +44,7 @@ const (
 	drumH Drum = "44" // pedal hi-hat
 	drumI Drum = "48" // high mid tom
 	drumJ Drum = "43" // ride bell
-	drumK Drum = "55" // splash symbol
+	drumK Drum = "48" // high mid tom
 )
 
 func main() {
@@ -67,6 +67,9 @@ func main() {
 		for {
 			e = <-keys
 			switch e.Rune {
+			case 'h':
+			drumA.Play()
+			drumH.Play()
 			case 'j', 'k':
 				drumA.Play()
 			case 'f':
