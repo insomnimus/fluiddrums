@@ -1,0 +1,23 @@
+35 acoustic bass drum
+36 base drum 1
+37 side stick
+38 acoustic snare
+40 electric snare
+41 low floor tom
+42 closed hi-hat
+43 high floor tom
+44 pedal hi-hat
+45 low tom
+46 open hi-hat
+47 low-mid tom
+48 high mid tom
+49 crash cymbol 1
+50 high tom
+51 ride cymbol 1
+52 chinese cymbol
+53 ride bell
+54 tambourine
+55 splash cymbol
+56 cowbell
+57 crash cymbol 2
+59 ride cymbol 2
