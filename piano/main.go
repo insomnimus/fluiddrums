@@ -114,6 +114,10 @@ func Release() {
 }
 
 func main() {
+	fmt.Println(`
+	1-2: change octave
+	3-4: change preset
+	spacebar: stop all playing notes`)
 	err := termbox.Init()
 	if err != nil {
 		panic(err)
