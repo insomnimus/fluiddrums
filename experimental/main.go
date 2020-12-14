@@ -9,15 +9,13 @@ import (
 
 var c net.Conn
 
-type Drum string
-
-func (d Drum) String() string {
-	return string(d)
+type Drum struct{
+	Note, V string
 }
 
 func (d Drum) Play() {
-	c.Write([]byte("noteoff 9 " + d + " 0\n"))
-	c.Write([]byte("noteon 9 " + d + " 120\n"))
+	c.Write([]byte("noteoff 9 " + d.Note + " 0\n"))
+	c.Write([]byte("noteon 9 " + d.Note + " " + d.V + "\n"))
 }
 
 var PRESETS = [7]string{
@@ -43,28 +41,28 @@ func ProgramChange(step int) {
 	c.Write([]byte(PRESETS[cursor]))
 }
 
-const (
-	kickA  Drum = "36" // bass
-	kickB  Drum = "35" // acoustic
-	snareA Drum = "38" // acoustic
-	snareB Drum = "40" // electric
-	floorA Drum = "41" // low floor
-	floorB Drum = "43" // high floor
-	tomA   Drum = "45" // low
-	tomB   Drum = "47" // low-mid
-	tomC   Drum = "48" // high-mid
-	//tomF   Drum = "50" // high
-	hatC   Drum = "42" // closed hi-hat
-	hatB   Drum = "44" // pedal hi-hat
-	hatA   Drum = "46" // open hi-hat
-	crashA Drum = "49"
-	crashB Drum = "57"
-	rideA  Drum = "51" // ride cymbol 1
-	rideB  Drum = "53" // ride bell
-	rideC  Drum = "56" // cowbell
-	rideD  Drum = "59" // ride cymbol 2
-	miscA  Drum = "52" // chinese cymbol
-	miscB  Drum = "37" // side stick
+var(
+kickA= Drum{Note: "36", V: "127"}
+kickB= Drum{Note: "35", V: "127"}
+snareA= Drum{Note: "38", V: "96"}
+snareB= Drum{Note: "40", V: "127"}
+snareC= Drum{Note: "40", V: "80"}
+floorA= Drum{Note: "41", V: "127"}
+floorB= Drum{Note: "43", V: "127"}
+tomA= Drum{Note: "45", V: "127"}
+tomB= Drum{Note: "47", V: "127"}
+tomC= Drum{Note: "48", V: "127"}
+hatC= Drum{Note: "42", V: "127"}
+hatB= Drum{Note: "44", V: "127"}
+hatA= Drum{Note: "46", V: "127"}
+crashA= Drum{Note: "49", V: "127"}
+crashB= Drum{Note: "57", V: "127"}
+rideA= Drum{Note: "51", V: "127"}
+rideB= Drum{Note: "53", V: "127"}
+rideC= Drum{Note: "56", V: "127"}
+rideD= Drum{Note: "59", V: "127"}
+miscA= Drum{Note: "52", V: "127"}
+miscB= Drum{Note: "37", V: "127"}
 )
 
 func main() {
@@ -118,7 +116,9 @@ func main() {
 				hatB.Play()
 			case 'r':
 				tomB.Play()
-			case 'w', 'o':
+			case 'o': 
+			snareC.Play()
+			case 'w':
 				snareB.Play()
 			case 't':
 				tomC.Play()
@@ -128,7 +128,7 @@ func main() {
 			case 'n', 'm':
 				kickB.Play()
 			case 'd':
-				rideC.Play()
+				rideD.Play()
 			case '1':
 				ProgramChange(-1)
 			case '2':
