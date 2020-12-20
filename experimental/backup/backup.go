@@ -102,7 +102,7 @@ func main() {
 				snareA.Play()
 			case 'ı', 'i':
 				hatA.Play()
-			case 'f', 'k':
+			case 's', 'k':
 				rideA.Play()
 			case 'a':
 				crashA.Play()
@@ -112,7 +112,7 @@ func main() {
 				floorB.Play()
 			case 'e':
 				tomA.Play()
-			case 'd', 'p':
+			case 'f', 'p':
 				hatB.Play()
 			case 'r':
 				tomB.Play()
@@ -127,16 +127,12 @@ func main() {
 				hatB.Play()
 			case 'n', 'm':
 				kickB.Play()
-			case 's':
+			case 'd':
 				rideD.Play()
 			case '1':
 				ProgramChange(-1)
 			case '2':
 				ProgramChange(1)
-			}
-			if e.Key== termbox.KeySpace{
-				kickA, kickB= kickB, kickA
-				snareA, snareB, snareC= snareB, snareC, snareA
 			}
 		}
 	}
