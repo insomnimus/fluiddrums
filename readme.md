@@ -1,16 +1,14 @@
-FluidDrums
-========
+# fluiddrums
 
-A simple command line application to play drums with [fluidsynth] (http://www.fluidsynth.org/).
+A simple command line application to play drums with [fluidsynth](http://www.fluidsynth.org/).
 
-Installation
-====
+## Installation
+
 You will need to install fluidsynth and a soundfont.
 
 	go get -v -u github.com/insomnimus/fluiddrums
 
-Usage
-====
+## Usage
 
 First start fluidsynth as a server:
 	fluidsynth -s '/path/to/your/soundfont.sf2'
